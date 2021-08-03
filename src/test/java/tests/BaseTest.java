@@ -13,10 +13,13 @@ public class BaseTest {
     protected PracticeFormPage practiceFormPage = new PracticeFormPage();
     protected Faker faker = new Faker();
 
+
     @BeforeAll
-    static void setUp(){
+    static void setUp() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+
 
         Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl = "https://demoqa.com";
@@ -30,7 +33,7 @@ public class BaseTest {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-//        Attach.addVideo();
+        Attach.addVideo();
 
     }
 }
